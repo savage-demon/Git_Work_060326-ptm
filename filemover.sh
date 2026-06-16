@@ -18,12 +18,11 @@
 #6. Копирование файлов с указанным расширением в целевую директорию
 
 for file in "$source_directory"/*."$file_extension"; do
-    filename=$(basename "$file")
-    filename_without_extension="${filename%.*}"
+    filename_without_extension=$(basename "${file%.*}")
 
     cp "$file" "$target_directory/$filename_without_extension.$new_file_extension"
 
-    echo "Скопирован файл: $filename -> $filename_without_extension.$new_file_extension"
+    echo "Скопирован файл: $file -> $filename_without_extension.$new_file_extension"
 done
 
 #7. Архивация исходных файлов.
